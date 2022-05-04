@@ -3,6 +3,11 @@ const router = express.Router();
 
 const rangersModel = require('../model/db');
 
+router.use((req, res, next) => {
+    console.log('Getting there')
+    next()
+})
+
 router.get('/', (req, res) => {
     res.render('template', {
         locals: {
@@ -33,3 +38,5 @@ router.get('/:slug', (req, res) => {
     }
 
 });
+
+module.exports = router; 
